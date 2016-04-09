@@ -22,9 +22,11 @@ Template.user.helpers({
     return user;
   },
   notifications() {
-      console.log("we in this");
-      console.log(Connections.find().count());
-      return Connections.find({guide_id: Meteor.userId});
+    //   console.log("we in this");
+    //   console.log(Connections.find().count());
+      return Connections.find(
+          {guideId : Meteor.userId()}
+      );
   },
   calendarOptions: {
       // Standard fullcalendar options
@@ -48,9 +50,9 @@ Template.user.helpers({
           // each event field named as fullcalendar Event Object property is automatically used by fullcalendar
           if (userActivities) {
               if(userActivities.profile) {
-                  if(userActivities.profile.activities) { //I DON'T KNOW HOW TO NOT MAKE IT BE THIS WAY
+                  if(userActivities.profile.cur_activities) { //I DON'T KNOW HOW TO NOT MAKE IT BE THIS WAY
                       console.log("got user activities");
-                      userActivities.profile.activities.forEach(function (event) {
+                      userActivities.profile.cur_activities.forEach(function (event) {
                           var eventDetails = {
                               allDay : true,
                               title : event.followerName + "\n" + event.msg,

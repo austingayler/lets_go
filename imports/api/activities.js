@@ -92,9 +92,6 @@ if (Meteor.isServer) {
       picURL: "Waterfowl - hunting.jpg",
   });
 
-
-
-
   userID = Accounts.createUser({
       username: "abc123",
       email: "abc123@a.com",
@@ -310,12 +307,12 @@ Meteor.methods({
   },
 
   'confirmActivity'(id) {
-      request = Connections.findOne({_id : id});
+      var request = Connections.findOne({_id : id});
       Meteor.users.update({
         _id: request.guideId
       }, {
         $push: {
-          "profile.activities" : request
+          "profile.cur_activities" : request
         }
       });
       Connections.remove({_id : id});
