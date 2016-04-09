@@ -10,6 +10,7 @@ import './activityList.html';
 Template.activityList.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
   Meteor.subscribe('activities');
+  Meteor.subscribe('allConnections');
 });
 
 Template.activityList.helpers({
@@ -57,6 +58,22 @@ Template.activityList.helpers({
     // Isolate climbing activities
     if (instance.state.get('showSwimming')) {
         activity = 'Swimming';
+    }
+    // Isolate flyfishing activities
+    if (instance.state.get('showFlyfishing')) {
+        activity = 'Flyfishing';
+    }
+    // Isolate running activities
+    if (instance.state.get('showRunning')) {
+        activity = 'Running';
+    }
+    // Isolate hunting activities
+    if (instance.state.get('showHunting')) {
+        activity = 'Hunting';
+    }
+    // Isolate yoga activities
+    if (instance.state.get('showYoga')) {
+        activity = 'Yoga';
     }
 
     // REVIEWING SKILL LEVELS TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
@@ -125,19 +142,6 @@ Template.activityList.helpers({
           }
       }
     }
-
-
-
-
-
-
-
-    //    return Activities.find({}, { sort: { createdAt: -1 } });
-    //}
-    //else {
-    //    return Activities.find({ category: activity, skill_level: skill, gear: gear_need}, { sort: { createdAt: -1 } });
-    //}
-
   },
 
     incompleteCount() {
@@ -200,6 +204,22 @@ Template.activityList.events({
   'change .show-swimming input'(event, instance) {
     instance.state.set('showSwimming', event.target.checked);
   },
+  // Isolating flyfishing
+  'change .show-flyfishing input'(event, instance) {
+    instance.state.set('showFlyfishing', event.target.checked);
+  },
+  // Isolating running
+  'change .show-running input'(event, instance) {
+    instance.state.set('showRunning', event.target.checked);
+  },
+  // Isolating hunting
+  'change .show-hunting input'(event, instance) {
+    instance.state.set('showHunting', event.target.checked);
+  },
+  // Isolating yoga
+  'change .show-yoga input'(event, instance) {
+    instance.state.set('showYoga', event.target.checked);
+  },
 
   // CODE TO ISOLATE SKILL LEVELS
   // Isolating trying-to-learn
@@ -228,5 +248,8 @@ Template.activityList.events({
   'change .gear-provided input'(event, instance) {
     instance.state.set('gearProvided', event.target.checked);
   },
+
+  // Price
+  //var max_price = activityList.getElementByID('max_price');
 
 });

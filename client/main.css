@@ -19,11 +19,15 @@ body {
   font-size: 14px;
 }
 
+.outer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
-  background: white;
 }
 
 header {

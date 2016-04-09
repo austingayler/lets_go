@@ -4,24 +4,33 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 import { Activities } from '../api/activities.js';
 
-import './activity.js';
-import './viewProfile.html';
+import './admin.html';
 
-Template.viewProfile.onCreated(function bodyOnCreated() {
+Template.admin.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
     Meteor.subscribe('activities');
     Meteor.subscribe('allUsers');
     Meteor.subscribe('allConnections');
 });
 
-Template.viewProfile.helpers({
-  data() {
+Template.admin.helpers({
+  userData() {
     // console.log(FlowRouter.getParam('_id'));
-    user = Meteor.users.findOne({_id : FlowRouter.getParam('_id')});
+    var user = Meteor.users.findOne(
+        {_id : Meteor.userId()}
+    );
     // console.log(user);
     return user;
   },
+  notifications() {
+      return Connections.find({});
+  }
+
 });
 
-Template.viewProfile.events({
+Template.admin.events({
+    'click button' : function() {
+        console.log("fuck");
+        Meteor.call('fixtures.insert');
+    }
 });

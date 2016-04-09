@@ -23,3 +23,20 @@ FlowRouter.route('/request/:_id', {
     });
   }
 });
+
+FlowRouter.route('/user', {
+  action: function(params) {
+    BlazeLayout.render("mainLayout", {
+        content: "user"
+    });
+  }
+});
+
+FlowRouter.route('/admin', {
+  action: function(params) {
+    BlazeLayout.render("mainLayout", {
+        content: "admin",
+        params : params
+    });
+  }
+});

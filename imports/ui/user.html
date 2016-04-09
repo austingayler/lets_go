@@ -1,0 +1,35 @@
+<template name="user">
+    {{#if currentUser}}
+    <h3>Your Profile</h3>
+    <div class="ui bulleted list">
+      <div class="item">User ID: {{userData._id}}</div>
+      <div class="item">Username: {{userData.username}}</div>
+    </div>
+    <div class="ui divider"></div>
+
+    <h3>Notifications</h3>
+    <div class="ui feed">
+        {{#each notifications}}
+            <div class="event">
+              <div class="label">
+                <img src="/icon/notif.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a>{{this.followerName}}</a> sent you an adventure request
+                  <div class="date">
+                    2 hours ago
+                  </div>
+                </div>
+                <div class="extra text">
+                  {{this.msg}}
+                </div>
+              </div>
+            </div>
+        {{/each}}
+    </div>
+    {{else}}
+        <p>Not logged in!</p>
+        {{> loginButtons}}
+    {{/if}}
+</template>

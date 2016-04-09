@@ -3,6 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
 export const Activities = new Mongo.Collection('activities');
+export const Connections = new Mongo.Collection('connections');
 
 if (Meteor.isServer) {
   // This code only runs on the server
@@ -17,6 +18,9 @@ if (Meteor.isServer) {
   });
   Meteor.publish('allUsers', function activitiesPublication() {
     return Meteor.users.find({});
+  });
+  Meteor.publish('allConnections', function activitiesPublication() {
+    return Connections.find({});
   });
 
   // ACTIVITY CATEGORIES - REFER FOR SAMPLE CODING
@@ -51,102 +55,279 @@ if (Meteor.isServer) {
   Activities.remove({});
   Meteor.users.remove({});
 
-  var userID = Accounts.createUser({email : "abc", password : "letsgo", profile : {
-    name : "Conrad Anker",
-    bio : "sports r da best",
-    certs : ["CPR", "WFR", "EMT", "AMGA"],
-    gear : ["Ice Axes", "Sleeping Pads", "Tent", "Harness"],
-    activities : ["Ice Climbing", "Rock Climbing", "Mountaineering", "Badass"],
-    trips : ["Hyalite Peak", "Palisade Falls", "Crazy Peak"],
-    reviews : ["A++, Great guy."],
-    picURL : "/1.jpg"
-  }});
 
-  var user = Meteor.users.findOne({_id : userID}); //get actual user object
-
-  Activities.insert({
-    owner_id : userID,
-    ownerName : "Alex Lowe",
-    gear : 'Provided',
-    activityTitle: "Alpine Skinny-dipping",
-    category : "Swimming",
-    skill_level: 'Trying To Learn',
-    createdAt: new Date(),
+  var userID = Accounts.createUser({
+      email: "abc1",
+      password: "letsgo",
+      profile: {
+          name: "Tucker Tyrell",
+          bio: "Yoga has been a dynamic passion in my life since the Fall of 2012. After sustaining a head injury to end my rugby career, Yoga became a powerful tool of recovery. It was the mental and emotional clarity that drew me deeper into the practice, helping me to find light in a time of deep darkness. My teaching comes from a strong personal practice with an emphasis on the connection of breath, the power of presence, and the freedom of flow; utilizing progressive sequencing to cultivate fire and access liberation to embrace on and off the mat. I hope to inspire any and all to discover and nourish the eternal light hidden within.",
+          certs: ["CPR", "WFR", "200 Hour Yoga Training"],
+          gear: ["15 Yoga Mats"],
+          activities: ["Yoga", "Meditation", "Hiking"],
+          trips: ["Spanish Peaks Yoga Retreat"],
+          reviews: ["8.8"],
+          picURL: ""
+      }
   });
 
-  Activities.insert({
-    owner_id : userID,
-    ownerName : "Danny MacAskill",
-    gear : 'Provided',
-    activityTitle: "Fly-fishing the Maddy",
-    category : "Fishing",
-    skill_level: 'Intermediate',
-    createdAt: new Date(),
-  });
+  var user = Meteor.users.findOne({
+      _id: userID
+  }); //get actual user object
 
   Activities.insert({
-    owner_id : userID,
-    ownerName : "Joe Brown",
-    gear : 'Provided',
-    activityTitle : 'Hiking the M - Bozeman',
-    category : "Hiking",
-    skill_level: 'Beginner',
-    createdAt : new Date(),
+      owner_id: userID,
+      ownerName: user.profile.name,
+      gear: "Provided",
+      activityTitle: "Spanish Peaks Yoga Retreat",
+      category: "Yoga",
+      skill_level: "Advanced",
+      createdAt: new Date(),
+      picURL: "10658782 _10152825763099085.jpg",
   });
 
-  Activities.insert({
-    owner_id : userID,
-    ownerName : "Danny MacAskill",
-    gear : 'Required',
-    activityTitle : 'Fly-fishing the Jefferson',
-    category : "Fishing",
-    skill_level: 'Beginner',
-    createdAt : new Date(),
+
+
+  userID = Accounts.createUser({
+      email: "abc12",
+      password: "letsgo",
+      profile: {
+          name: "Derrick Krueger",
+          bio: "A Montanan, born and raised, with a passion for skiing in the outdoors! As an avid globetrotter, I know the feeling of wanting to explore the area I am visiting to the fullest! I have been living in the Gallatin Valley for the past 7 years and every day still finding more and more reasons to stay. If you're visiting Montana for the 1st time or returning because you didn’t check everything off your check list from before- let me know me know how I can help! Currently finishing up a degree at Montana State University, so time is a little scares.Shoot me an email if you have an idea and perhaps I might have some free time!",
+          certs: ["CPR"],
+          gear: ["Tent", "Hammock", "Cooking Supplies", "Rain Coat"],
+          activities: ["Skiing", "Duck Hunting", "Rowing"],
+          trips: ["Warm Springs Duck Blind", "Pipestone Hot Springs", "Solemn Hike"],
+          reviews: ["9.1"],
+          picURL: "11728980_10207105966190220.jpg"
+      }
   });
 
-  Activities.insert({
-    owner_id : userID,
-    ownerName : "Sarah Reid",
-    gear : 'Required',
-    activityTitle : 'Climbing Mt. Everest',
-    category : "Climbing",
-    skill_level: 'Advanced',
-    createdAt : new Date(),
-  });
+  user = Meteor.users.findOne({
+      _id: userID
+  }); //get actual user object
 
   Activities.insert({
-    owner_id : userID,
-    ownerName : "Chris Minor",
-    gear : 'Provided',
-    activityTitle : 'Camping at Clearwater National Forest',
-    category : "Camping",
-    skill_level: 'Trying To Learn',
-    createdAt : new Date(),
+      owner_id: userID,
+      ownerName: user.profile.name,
+      gear: "Provided",
+      activityTitle: "Warm Springs Duck Blind",
+      category: "Waterfowl-Hunting",
+      skill_level: "Beginner",
+      createdAt: new Date(),
+      picURL: "Waterfowl - hunting.jpg",
   });
 
 
 
 
+  userID = Accounts.createUser({
+      email: "abc123",
+      password: "letsgo",
+      profile: {
+          name: "Chris Major",
+          bio: "Hey guys I’m Chris Major and i’m a sophomore at MSU in the CpE department",
+          certs: ["CPR"],
+          gear: ["Running Shoes", "Camelback"],
+          activities: ["Trailrunning", "hiking"],
+          trips: ["The M", "Drinking Horse", "The Gallagator"],
+          reviews: ["9.5"],
+          picURL: "IMG_0781.JPG"
+      }
+  });
 
+  user = Meteor.users.findOne({
+      _id: userID
+  }); //get actual user object
+
+  Activities.insert({
+      owner_id: userID,
+      ownerName: user.profile.name,
+      gear: "Provided",
+      activityTitle: "Traillrunning Sourdough",
+      category: "Traillrunning",
+      skill_level: "Beginner",
+      createdAt: new Date(),
+      picURL: "IMG_0781.JPG",
+  });
+
+
+
+
+  userID = Accounts.createUser({
+      email: "abc1234",
+      password: "letsgo",
+      profile: {
+          name: "Martin Kepner",
+          bio: "Hey, my name is Martin Kepner and I’m a jr. in the college of business at MSU. I currently have certifications in First Aid and CPR and Swiftwater rescue. I love to hike, backpack, snowboard, and whitewater raft. I have a lot of experience hiking in several mountain ranges in the area including the Bridgers, Gallatin, Crazy, Gallatin, Madison, and Beartooth mountain range. My services include short hikes to scenic waterfalls in the area ranging from .2 miles to 3 mile hikes. For the more avid hiker I offer summit hikes for local peaks including Baldy, Sphynx, Crazy, Blackmore and Sacagawea and backcountry options in the Beartooth, Madison and Gallatin range. These backcountry hiking options vary from 2-5 days and between 10 to 40 miles. On the hikes you can expect to see glacial lakes, waterfalls, gorgeous backcountry, and almost always are able to observe some wildlife on the trip. During hikes in the area I have been able to observe mountain goats, moose, deer, elk, and even a black bear from safe locations. Bear spray carried around my waist at all time allows me to keep my group and myself safe at all times. I also offer whitewater rafting trips on the Gallatin and Yellowstone rivers.",
+          certs: ["CPR", "Swiftwater Rescue 1", "First Aid"],
+          gear: ["Backcountry Backpacks", "Sleeping Pads", "Sleeping Bags"],
+          activities: ["Hiking Short Half Day $25 Per person, $15 Per person for groups >3", "Backcountry Camping 3 day $200 per person, 100 Per Person for groups >3", "Whitewater Rafting Half Day $25 Per person, $15 Per person for groups >3"],
+          trips: ["Hyalite Peak", "Palisade Falls", "Crazy Peak"],
+          reviews: ["8"],
+          picURL: "IMG_0286.jpg"
+      }
+  });
+
+  user = Meteor.users.findOne({
+      _id: userID
+  }); //get actual user object
+
+  Activities.insert({
+      owner_id: userID,
+      ownerName: user.profile.name,
+      gear: "Provided",
+      activityTitle: "East Rosebud Trail",
+      category: "Backcountry Camping",
+      skill_level: "Beginner",
+      createdAt: new Date(),
+      picURL: "IMG_0212.jpg",
+  });
+
+
+
+
+  userID = Accounts.createUser({
+      email: "abc12345",
+      password: "letsgo",
+      profile: {
+          name: "Duncan Kepner",
+          bio: "Hey my name is Duncan Kepner and I’m a freshmen at MSU in Bozeman. I specialize in safe rock climbing techniques as well as improvised self rescue techniques for you and your climbing friends. I offer trips ranging from backcountry hikes to backcountry climbing trips. I have many certifications after completing a NOLS course last year. I have been to many of the local mtn ranges and am very knowledgeable of the area surrounding bozeman.",
+          certs: ["CPR", "WFR", "EMT", "Lifeguard", "AED", "Rock Rescue 1", "Rock Rescue 1", "Avalanche 1", "Leave No Trace Master"],
+          gear: ["Ice Axes", "Sleeping Pads", "Tent", "Harness"],
+          activities: ["Ice Climbing", "Rock Climbing", "Mountaineering"],
+          trips: ["Hiking Short Half Day $25 Per person, $15 Per person for groups >3", "Hiking Full Day Summit $45 person, $25 Per person for groups>3", "Rock Climbing Half Day $35 Per person, $25 Per person for groups >3"],
+          reviews: ["9"],
+          picURL: "IMG_0212.jpg"
+      }
+  });
+
+  user = Meteor.users.findOne({
+      _id: userID
+  }); //get actual user object
+
+  Activities.insert({
+      owner_id: userID,
+      ownerName: user.profile.name,
+      gear: "Provided",
+      activityTitle: "Hiking The Hyalite",
+      category: "Hiking",
+      skill_level: "Advanced",
+      createdAt: new Date(),
+      picURL: "IMG_0802.JPG",
+  });
+
+
+  userID = Accounts.createUser({
+      email: "abc123456",
+      password: "letsgo",
+      profile: {
+          name: "AJ Gayler",
+          bio: "Hey guys I’m AJ Gayler and I’m a senior at MSU in the CS department",
+          certs: ["CPR", "First Aid", "WFR"],
+          gear: ["Ice Axes", "Harnesses", "Rope, Quickdraws"],
+          activities: ["Ice Climbing", "Rock Climbing"],
+          trips: ["Rock Climbing Half Day $35 Per person, $25 Per person for groups >3", "Rock Climbing Full Day $55 person, $30 Per person for groups>3", "Ice Climbing Full Day $55 person, $30 Per person for groups>3"],
+          reviews: ["9.5"],
+          picURL: "ursa5.JPG"
+      }
+  });
+
+  user = Meteor.users.findOne({
+      _id: userID
+  }); //get actual user object
+
+  Activities.insert({
+      owner_id: userID,
+      ownerName: user.profile.name,
+      gear: "Provided",
+      activityTitle: "Summiting the Grand Teton",
+      category: "Rock Climbing",
+      skill_level: "Beginner",
+      createdAt: new Date(),
+      picURL: "ursa10.jpg",
+  });
 
 }
 
 Meteor.methods({
-  'activities.insert'(text) {
-    check(text, String);
+  // 'activities.insert'(text) {
+  //   check(text, String);
+  //
+  //   // Make sure the user is logged in before inserting a task
+  //   if (! this.userId) {
+  //     throw new Meteor.Error('not-authorized');
+  //   }
+  //
+  //   Activities.insert({
+  //     text,
+  //     createdAt: new Date(),
+  //     owner: this.userId,
+  //     username: Meteor.users.findOne(this.userId).username,
+  //   });
+  // },
+
+  'connections.insert'(request) {
+    console.log(request);
 
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
     }
 
-    Activities.insert({
-      text,
+    var fname;
+    var usr = Meteor.users.findOne(this.userId);
+    if(usr) {
+        if(usr.profile) {
+            if(usr.profile.name) { //this hurts me on the inside
+                fname = Meteor.users.findOne(this.userId).profile.name;
+            }
+        }
+    }
+    if(!fname) {
+        fname = "John Doe";
+    }
+
+    var con = {
+      followerId : this.userId,
+      followerName : fname,
+      guideId : request.guideId,
+      guideName : Meteor.users.findOne(request.guideId).profile.name,
+      date : request.date,
+      msg : request.why,
+      status : null,
       createdAt: new Date(),
       owner: this.userId,
-      username: Meteor.users.findOne(this.userId).username,
-    });
+      trip : request.trip
+  };
+    console.log(con);
+    Connections.insert(con);
+
+    FlowRouter.go('/');
+
   },
+
+  'fixtures.insert'() {
+      if (! this.userId) {
+        throw new Meteor.Error('not-authorized');
+      }
+      var con = {
+        followerId : "conrad_anker",
+        followerName : "Conrad Anker",
+        guideId : this.userId,
+        guideName : "Conrad Anker",
+        date : new Date(),
+        msg : "plz teach me how to double dyno to micro crimpers",
+        status : null,
+        createdAt: new Date(),
+        owner: this.userId,
+        trip : "Rock Climbing Half Day $35 Per person, $25 Per person for groups >3"
+    };
+      console.log(con);
+      Connections.insert(con);
+      Connections.insert(con);
+  },
+
   'activities.remove'(taskId) {
     check(taskId, String);
 

@@ -1,14 +1,10 @@
 <template name="activityList">
-  <div class="container">
-    <header>
       <h1>Activity List ({{incompleteCount}})</h1>
-
       {{> loginButtons}}
 
       <br>
 
       <!-- FILTER BY ACTIVITY TYPE -->
-
       <div class="dropdown">
         <button onclick="dropdown_menu()" class="dropbtn">Filter Activities</button>
         <div id="myDropdown" class="dropdown-content">
@@ -56,11 +52,30 @@
                 <input type="checkbox"/>
                   Swimming
               </label>
+              <br>
+              <label class="show-flyfishing">
+                <input type="checkbox"/>
+                  Flyfishing
+              </label>
+              <br>
+              <label class="show-running">
+                <input type="checkbox"/>
+                  Running
+              </label>
+              <br>
+              <label class="show-hunting">
+                <input type="checkbox"/>
+                  Hunting
+              </label>
+              <br>
+              <label class="show-yoga">
+                <input type="checkbox"/>
+                  Yoga
+              </label>
         </div>
       </div>
 
       <!-- FILTER BY SKILL LEVEL -->
-
       <div class="dropdown">
         <button onclick="dropdown_menu()" class="dropbtn">Filter by Skill Level</button>
         <div id="myDropdown" class="dropdown-content">
@@ -87,7 +102,6 @@
       </div>
 
       <!-- FILTER BY GEAR -->
-
       <div class="dropdown">
         <button onclick="dropdown_menu()" class="dropbtn">Filter by Gear</button>
         <div id="myDropdown" class="dropdown-content">
@@ -105,22 +119,28 @@
 
       <!-- FILTER BY PRICE -->
 
-      {{> loginButtons}}
+      <!-- FILTER BY DISTANCE -->
 
-
+      <div class="text-box">
+          <input type="text" class="max_price">  Maximum Price
+      </div>
 
       <!-- FILTER BY DISTANCE -->
+      <div class="text-box">
+          <input type="text" class="max_distance">  Maximum Distance
+      </div>
+
       {{#if currentUser}}
         <form class="new-task">
           <input type="text" name="text" placeholder="Type to add new activities" />
         </form>
       {{/if}}
-    </header>
 
+      <h1>Activity List ({{incompleteCount}})</h1>
+      
     <ul>
       {{#each activities}}
         {{> activity}} <br>
       {{/each}}
     </ul>
-  </div>
 </template>

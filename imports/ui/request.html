@@ -1,26 +1,31 @@
 <template name="request">
-    <span class="text">
-        <strong>Go on an adventure with {{data.profile.name}}</strong>
-    </span>
-    <form>
-        <select id="input_trip" class="ui dropdown">
-            {{#each data.profile.trips}}
+    <div class="ui raised very padded text container segment">
+        <span class="text">
+            <strong>Go on an adventure with {{data.profile.name}}!</strong>
+        </span>
+        <form>
+            <select id="input_trip" class="ui dropdown">
+                {{#each data.profile.trips}}
                 <option value="">{{this}}</option>
-            {{/each}}
-        </select>
+                {{/each}}
+            </select>
 
-        <div class="ui input focus">
-          <input placeholder="Why this trip?" type="text" id="input_why">
-        </div>
+            <br>
 
-        <input class = "datepicker" id="input_date">
+            <div class="ui input focus">
+                <input placeholder="Why this trip?" type="text" id="input_why">
+            </div> <br>
 
-        <!-- {{#if currentUser}} -->
+            <input placeholder="Pick a date" class = "datepicker" id="input_date">
+
+            <!-- {{#if currentUser}} -->
             <!-- <a href="/request/{{data._id}}"> -->
-                <button class="ui primary button">
-                  Request
-                </button>
+            <br><br>
+            <button class="ui primary button">
+                Request
+            </button>
             <!-- </a> -->
-        <!-- {{/if}} -->
-    </form>
+            <!-- {{/if}} -->
+        </form>
+    </div>
 </template>

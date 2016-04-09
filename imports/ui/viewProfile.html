@@ -1,19 +1,63 @@
 <template name="viewProfile">
-    <span class="text">
-        <strong>{{data.profile.name}}</strong> - {{data.profile.bio}}
+      <h2 class="ui header"><strong>{{data.profile.name}}</strong></h2>
 
-    </span>
-    <p>{{data.profile.certs}}</p><br>
-    <p>{{data.profile.gear}}</p><br>
-    <p>{{data.profile.activities}}</p><br>
-    <p>{{data.profile.trips}}</p><br>
+      <div class="ui message">
+          <p>{{data.profile.bio}}</p><br>
+      </div>
 
-    <!-- {{#if currentUser}} -->
-        <a href="/request/{{data._id}}">
-            <button class="ui primary button">
-              Request
-            </button>
-        </a>
-    <!-- {{/if}} -->
+      <h3>Certifications:</h3>
+      <div class="ui middle aligned animated list">
+          {{#each data.profile.certs}}
+              <div class="item">
+                <img class="ui avatar image" src="/icon/cert.png">
+                <div class="content">
+                  <div class="header">{{this}}</div>
+                </div>
+              </div>
+          {{/each}}
+      </div>
 
+      <h3>Activities:</h3>
+      <div class="ui middle aligned animated list">
+          {{#each data.profile.activities}}
+              <div class="item">
+                <img class="ui avatar image" src="/icon/tree.png">
+                <div class="content">
+                  <div class="header">{{this}}</div>
+                </div>
+              </div>
+          {{/each}}
+      </div>
+
+      <h3>Gear:</h3>
+      <div class="ui middle aligned animated list">
+          {{#each data.profile.gear}}
+              <div class="item">
+                <img class="ui avatar image" src="/icon/gear.png">
+                <div class="content">
+                  <div class="header">{{this}}</div>
+                </div>
+              </div>
+          {{/each}}
+      </div>
+
+      <h3>Trips:</h3>
+      <div class="ui middle aligned animated list">
+          {{#each data.profile.trips}}
+              <div class="item">
+                <img class="ui avatar image" src="/icon/trips.png">
+                <div class="content">
+                  <div class="header">{{this}}</div>
+                </div>
+              </div>
+          {{/each}}
+      </div>
+
+      <!-- {{#if currentUser}} -->
+          <a href="/request/{{data._id}}">
+              <button class="ui primary button">
+                Request
+              </button>
+          </a>
+      <!-- {{/if}} -->
 </template>

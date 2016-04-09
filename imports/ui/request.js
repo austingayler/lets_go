@@ -11,6 +11,7 @@ Template.request.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
     Meteor.subscribe('activities');
     Meteor.subscribe('allUsers');
+    Meteor.subscribe('allConnections');
 });
 
 Template.request.rendered = function() {
@@ -37,10 +38,16 @@ Template.request.events({
       var why = event.target.input_why.value;
       var trip = event.target.input_trip.options[event.target.input_trip.selectedIndex].text;
 
-      date = moment(date, "D MMM, YYYY").toDate();
-
       if(date && why && trip) {
-          //let the user request the trip for the other user.
+          date = moment(date, "D MMM, YYYY").toDate();
+          var request = {
+              date : date,
+              why : why,
+              trip : trip,
+              guideId : FlowRouter.getParam('_id')
+          }
+          console.log("nigga we made it");
+          Meteor.call('connections.insert', request);
       }
 
     //   console.log(date);

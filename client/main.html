@@ -1,8 +1,26 @@
 <template name="mainLayout">
-  <header>
-      <a href="/"><h1>Let's Go</h1></a>
-  </header>
+  <!-- <header class="top-page">
+      <h1>
+          <a href="/">Let's Go</a> |
+          <a href="/user">Profile</a> |
+          <a href="/admin">Admin</a>
+      </h1>
+
+  </header> -->
+
   <main>
-    {{>Template.dynamic template=content data=params}}
+      <br>
+      <div class="outer-container">
+          <div class="ui two top attached buttons">
+              <a href="/"><div class="ui button">Let's Go</div></a>
+              <a href="/user"><div class="ui button">Profile</div></a>
+              <a href="/admin"><div class="ui button">Admin</div></a>
+              <a href="/post"><div class="ui button">Post adventure</div></a>
+          </div>
+          <div class="ui attached segment raised">
+            {{>Template.dynamic template=content data=params}}
+          </div>
+      </div>
+
   </main>
 </template>
