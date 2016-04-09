@@ -66,59 +66,61 @@ if (Meteor.isServer) {
 
   Activities.insert({
     owner_id : userID,
-    ownerName : user.name,
-    certification : 'first aid + cpr',
-    activityTitle: "Hiking in the Amazon",
-    category : "Hiking",
-    createdAt: new Date(),
-  });
-
-  Activities.insert({
-    owner_id : userID,
     ownerName : "Alex Lowe",
-    certification : 'first aid + cpr',
+    gear : 'Provided',
     activityTitle: "Alpine Skinny-dipping",
     category : "Swimming",
+    skill_level: 'Trying To Learn',
     createdAt: new Date(),
   });
 
   Activities.insert({
     owner_id : userID,
     ownerName : "Danny MacAskill",
+    gear : 'Provided',
     activityTitle: "Fly-fishing the Maddy",
     category : "Fishing",
+    skill_level: 'Intermediate',
     createdAt: new Date(),
   });
 
   Activities.insert({
     owner_id : userID,
     ownerName : "Joe Brown",
+    gear : 'Provided',
     activityTitle : 'Hiking the M - Bozeman',
     category : "Hiking",
+    skill_level: 'Beginner',
     createdAt : new Date(),
   });
 
   Activities.insert({
     owner_id : userID,
     ownerName : "Danny MacAskill",
+    gear : 'Required',
     activityTitle : 'Fly-fishing the Jefferson',
     category : "Fishing",
+    skill_level: 'Beginner',
     createdAt : new Date(),
   });
 
   Activities.insert({
     owner_id : userID,
     ownerName : "Sarah Reid",
+    gear : 'Required',
     activityTitle : 'Climbing Mt. Everest',
     category : "Climbing",
+    skill_level: 'Advanced',
     createdAt : new Date(),
   });
 
   Activities.insert({
     owner_id : userID,
     ownerName : "Chris Minor",
+    gear : 'Provided',
     activityTitle : 'Camping at Clearwater National Forest',
     category : "Camping",
+    skill_level: 'Trying To Learn',
     createdAt : new Date(),
   });
 
