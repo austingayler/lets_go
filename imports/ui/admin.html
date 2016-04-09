@@ -1,5 +1,10 @@
 <template name="admin">
-    <button class="ui primary button">
-      Insert fixtures
-    </button>
+    {{#if currentUser}}
+        <button class="ui primary button">
+          Insert fixtures
+        </button>
+    {{else}}
+        <p>Not logged in!</p>
+        {{> loginButtons}}
+    {{/if}}
 </template>
