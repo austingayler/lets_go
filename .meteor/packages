@@ -27,3 +27,4 @@ semantic:ui
 flemay:less-autoprefixer
 fermuch:pickadate
 momentjs:moment
+gquemart:meteor-reactive-fullcalendar

@@ -325,7 +325,25 @@ Meteor.methods({
     };
       console.log(con);
       Connections.insert(con);
+      con.date = new Date(new Date().getTime()+(3*24*60*60*1000));
       Connections.insert(con);
+  },
+
+  'confirmActivity'(id) {
+      request = Connections.findOne({_id : id});
+      Meteor.users.update({
+        _id: request.guideId
+      }, {
+        $push: {
+          "profile.activities" : request
+        }
+      });
+      Connections.remove({_id : id});
+      console.log(Meteor.users.findOne({_id : request.guideId}));
+  },
+
+  'denyActivity'(id) {
+      Connections.remove({_id : id});
   },
 
   'activities.remove'(taskId) {

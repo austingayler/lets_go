@@ -24,10 +24,19 @@
                 <div class="extra text">
                   {{this.msg}}
                 </div>
+                <button class="ui primary button confirm-activity">
+                  Confirm
+                </button>
+                <button class="ui button deny-activity">
+                  Deny
+                </button>
               </div>
+
             </div>
         {{/each}}
     </div>
+    <div class="ui divider"></div>
+    {{ > ReactiveFullcalendar options=calendarOptions }}
     {{else}}
         <p>Not logged in!</p>
         {{> loginButtons}}

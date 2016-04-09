@@ -33,6 +33,7 @@ fastclick@1.0.9-rc.2
 fermuch:pickadate@1.0.0
 flemay:less-autoprefixer@1.2.0
 geojson-utils@1.0.6-rc.2
+gquemart:meteor-reactive-fullcalendar@1.0.1
 hot-code-push@1.0.2-rc.2
 html-tools@1.0.7-rc.2
 htmljs@1.0.7-rc.2
@@ -58,6 +59,8 @@ modules-runtime@0.6.1-rc.2
 momentjs:moment@2.12.0
 mongo@1.1.5-rc.2
 mongo-id@1.0.2-rc.2
+mrt:jquery-ui@1.9.2
+mrt:moment@2.8.1
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.41-rc.2
 observe-sequence@1.0.9-rc.2
