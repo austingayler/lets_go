@@ -54,6 +54,10 @@ Template.activityList.helpers({
     if (instance.state.get('showClimbing')) {
         activity = 'Climbing';
     }
+    // Isolate climbing activities
+    if (instance.state.get('showSwimming')) {
+        activity = 'Swimming';
+    }
 
     // REVIEWING SKILL LEVELS TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var skill = null;
@@ -133,7 +137,7 @@ Template.activityList.helpers({
     //else {
     //    return Activities.find({ category: activity, skill_level: skill, gear: gear_need}, { sort: { createdAt: -1 } });
     //}
-    
+
   },
 
     incompleteCount() {
@@ -191,6 +195,10 @@ Template.activityList.events({
   // Isolating surfing
   'change .show-surfing input'(event, instance) {
     instance.state.set('showSurfing', event.target.checked);
+  },
+  // Isolating swimming
+  'change .show-swimming input'(event, instance) {
+    instance.state.set('showSwimming', event.target.checked);
   },
 
   // CODE TO ISOLATE SKILL LEVELS
