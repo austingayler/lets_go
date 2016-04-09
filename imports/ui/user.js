@@ -24,7 +24,7 @@ Template.user.helpers({
   notifications() {
       console.log("we in this");
       console.log(Connections.find().count());
-      return Connections.find({});
+      return Connections.find({guide_id: Meteor.userId});
   },
   calendarOptions: {
       // Standard fullcalendar options
