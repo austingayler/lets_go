@@ -24,11 +24,19 @@ Template.viewProfile.helpers({
   getPicURL() {
       var ret = "";
       console.log(this);
-      console.log(this.picURL);
-      if(!this.picURL) {
+      console.log(this._id);
+      var profId = this._id;
+      var prof = Activities.findOne({_id : profId});
+
+      if(prof) {
+          if(prof.picURL) {
+              ret = prof.picURL;
+          } else {
+              ret = "/pix/riley.jpg";
+          }
           ret = "/pix/riley.jpg";
       } else {
-          ret = this.picURL;
+          ret = "/pix/riley.jpg";
       }
       return ret;
   }
