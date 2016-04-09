@@ -2,28 +2,28 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-import { Tasks } from '../api/tasks.js';
+import { Activities } from '../api/activities.js';
 
 import './task.js';
 import './body.html';
 
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
-  Meteor.subscribe('tasks');
+  Meteor.subscribe('activities');
 });
 
 Template.body.helpers({
-  tasks() {
+  activities() {
     const instance = Template.instance();
     if (instance.state.get('hideCompleted')) {
-      // If hide completed is checked, filter tasks
-      return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
+      // If hide completed is checked, filter activities
+      return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
     }
-    // Otherwise, return all of the tasks
-    return Tasks.find({}, { sort: { createdAt: -1 } });
+    // Otherwise, return all of the activities
+    return Activities.find({}, { sort: { createdAt: -1 } });
   },
   incompleteCount() {
-    return Tasks.find({ checked: { $ne: true } }).count();
+    return Activities.find({ checked: { $ne: true } }).count();
   },
 });
 
@@ -37,7 +37,7 @@ Template.body.events({
     const text = target.text.value;
 
     // Insert a task into the collection
-    Meteor.call('tasks.insert', text);
+    Meteor.call('activities.insert', text);
 
     // Clear form
     target.text.value = '';
