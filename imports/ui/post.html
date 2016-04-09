@@ -1,0 +1,55 @@
+<template name="post">
+    {{#if currentUser}}
+        <h3>Post an Adventure!</h3>
+        <div>
+            <form>
+            <div float="left" width="200px">
+                <h1>Ready to start exploring?</h1>
+                <p>Explorer Name:</p>
+                  <input type="text" id="guide_name">
+                <p>Activity:</p>
+                  <input type="text" id="activity_title">
+                <p>Activity Type:</p>
+                  <select id="activity_type">
+                    <option value="camping">Camping</option>
+                    <option value="climbing">Climbing</option>
+                    <option value="fishing">Fishing</option>
+                    <option value="hiking">Hiking</option>
+                    <option value="rafting">Rafing</option>
+                    <option value="biking">Biking</option>
+                    <option value="caving">Caving</option>
+                    <option value="surfing">Surfing</option>
+                    <option value="swimming">Swimming</option>
+                    <option value="flyfishing">Flyfishing</option>
+                    <option value="hunting">Hunting</option>
+                    <option value="running">Running</option>
+                    <option value="yoga">Yoga</option>
+                  </select>
+                <p>Skill Level:</p>
+                  <select id="skill_level">
+                    <option value="trying-to-learn">Trying To Learn</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                <p>Are participants requried to bring gear, or will you supply it?</p>
+                  <select id="gear_need">
+                    <option value="required">Required</option>
+                    <option value="supplied">Supplied</option>
+                  </select>
+                <p>Cost of Participation:</p>
+                  <p>$ <input type="text" id="guide_cost"></p>
+            </div>
+            <div float="right" width="200px">
+                <p>Describe your activity!</p>
+                  <textarea id="description" rows="10" cols="60"></textarea>
+                  <br>
+                <button name="submit_activity" type="submit">Submit!</button>
+            </div>
+            </form>
+        </div>
+    {{else}}
+        <p>Not logged in!</p>
+        {{> loginButtons}}
+    {{/if}}
+</template>

@@ -40,3 +40,12 @@ FlowRouter.route('/admin', {
     });
   }
 });
+
+FlowRouter.route('/post', {
+  action: function(params) {
+    BlazeLayout.render("mainLayout", {
+        content: "post",
+        params : params
+    });
+  }
+});

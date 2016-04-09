@@ -2,7 +2,7 @@
       <h1>Activity List ({{incompleteCount}})</h1>
         {{> loginButtons}}
       <br>
-
+    <div align="center">
       <!-- FILTER BY ACTIVITY TYPE -->
       <div class="dropdown">
         <button onclick="dropdown_menu()" class="dropbtn">Filter Activities</button>
@@ -116,24 +116,13 @@
         </div>
       </div>
 
-      <!-- FILTER BY PRICE -->
-
-      <!-- FILTER BY DISTANCE -->
-
-      <div class="text-box">
-          <input type="text" class="max_price">  Maximum Price
       </div>
 
-      <!-- FILTER BY DISTANCE -->
-      <div class="text-box">
-          <input type="text" class="max_distance">  Maximum Distance
-      </div>
-
-      {{#if currentUser}}
+      <!-- {{#if currentUser}}
         <form class="new-task">
-          <input type="text" name="text" placeholder="Type to add new activities" />
+          <input type="text" name="text" placeholder="Type to add new activities"/>
         </form>
-      {{/if}}
+      {{/if}} -->
 
       <h1>Activity List ({{incompleteCount}})</h1>
 

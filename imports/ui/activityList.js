@@ -20,9 +20,6 @@ Template.activityList.helpers({
 
     // REVIEWING VARIABLE STATES TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var activity = null;
-    if (instance.state.get('hideCompleted')) {
-        return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }
     // Isolate camping activities
     if (instance.state.get('showCamping')) {
         activity = 'Camping';
@@ -78,9 +75,6 @@ Template.activityList.helpers({
 
     // REVIEWING SKILL LEVELS TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var skill = null;
-    if (instance.state.get('hideCompleted')) {
-        return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }
     // Isolate trying to learn level
     if (instance.state.get('showLearning')) {
         skill = 'Trying To Learn';
@@ -100,9 +94,6 @@ Template.activityList.helpers({
 
     // REVIEWING SKILL LEVELS TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var gear_need = null;
-    if (instance.state.get('hideCompleted')) {
-        return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }
     // Isolate gear required
     if (instance.state.get('gearRequired')) {
         gear_need = 'Required';
@@ -165,7 +156,6 @@ Template.activityList.events({
     // Clear form
     target.text.value = '';
   },
-
 
   // CODE TO ISOLATE SPECIFIC ACTIVITY CATEGORIES
   // Isolating camping
@@ -248,8 +238,4 @@ Template.activityList.events({
   'change .gear-provided input'(event, instance) {
     instance.state.set('gearProvided', event.target.checked);
   },
-
-  // Price
-  //var max_price = activityList.getElementByID('max_price');
-
 });

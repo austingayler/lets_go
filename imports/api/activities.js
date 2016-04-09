@@ -23,35 +23,6 @@ if (Meteor.isServer) {
     return Connections.find({});
   });
 
-  // ACTIVITY CATEGORIES - REFER FOR SAMPLE CODING
-  // Showaround
-  // Fly-fishing
-  // Fishing
-  // Climbing
-  // Hiking
-  // Rafting
-	// Sport shooting
-  // Backpacking
-  // Fly Around
-  // Backcountry Skiing
-  // Tandem Parasailing
-  // Geo Hikes
-  // Biking
-  // Sailing
-  // Saltwater fishing
-  // Diving
-  // Snorkeling
-  // Snowshoeing
-  // Cross Country skiing
-  // Snowmobile
-  // ATV
-  // Backcountry dirt biking
-  // Surfing
-  // Caving
-  // Ice Climbing
-  // Swimming
-
-
   Activities.remove({});
   Meteor.users.remove({});
 
@@ -383,5 +354,28 @@ Meteor.methods({
     }
 
     Activities.update(taskId, { $set: { private: setToPrivate } });
+  },
+  'insert_activity'(act) {
+    console.log(act.owner_id);
+    if (act.owner_id) {
+        var usr = Meteor.users.findOne({_id : act.owner_id});
+        if(!usr.profile) {
+            var profile = {
+                name : act.ownerName,
+                bio : "No bio yet.",
+                certs : [],
+                gear : [],
+                activities : [],
+                trips : [],
+                reviews : [],
+                picURL : ""
+            };
+            Meteor.users.update(
+                {_id: act.owner_id},
+                {$set : {'profile' : profile} });
+        }
+
+        Activities.insert(act);
+    }
   },
 });
