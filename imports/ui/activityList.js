@@ -19,9 +19,6 @@ Template.activityList.helpers({
 
     // REVIEWING VARIABLE STATES TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var activity = null;
-    if (instance.state.get('hideCompleted')) {
-        return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }
     // Isolate camping activities
     if (instance.state.get('showCamping')) {
         activity = 'Camping';
@@ -77,9 +74,6 @@ Template.activityList.helpers({
 
     // REVIEWING SKILL LEVELS TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var skill = null;
-    if (instance.state.get('hideCompleted')) {
-        return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }
     // Isolate trying to learn level
     if (instance.state.get('showLearning')) {
         skill = 'Trying To Learn';
@@ -99,9 +93,6 @@ Template.activityList.helpers({
 
     // REVIEWING SKILL LEVELS TO DETERMINE WHICH ACTIVITIES SHOW UP AND WHICH DO NOT
     var gear_need = null;
-    if (instance.state.get('hideCompleted')) {
-        return Activities.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }
     // Isolate gear required
     if (instance.state.get('gearRequired')) {
         gear_need = 'Required';
@@ -165,6 +156,37 @@ Template.activityList.events({
     target.text.value = '';
   },
 
+   'submit form'(event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+
+      var input_name = event.target.guide_name.value;
+      var input_gear = event.target.gear_need.value;
+      var input_title = event.target.activity_title.value;
+      var input_activity = event.target.activity_type.value;
+      var input_skill = event.target.skill_level.value;
+      var input_cost = event.target.guide_cost.value;
+      var input_description = event.target.description.value;
+
+      var act = {
+        owner_id : Meteor.userId(),
+        ownerName : input_name,
+        gear : input_gear,
+        activityTitle: input_title,
+        category : input_activity,
+        skill_level: input_skill,
+        cost: guide_cost,
+        description: input_description,
+        createdAt: new Date(),
+      };
+
+      console.log(act);
+
+      Meteor.call('insert_activity', act);
+
+      //Activities.insert(act);
+
+    },
 
   // CODE TO ISOLATE SPECIFIC ACTIVITY CATEGORIES
   // Isolating camping
@@ -247,8 +269,4 @@ Template.activityList.events({
   'change .gear-provided input'(event, instance) {
     instance.state.set('gearProvided', event.target.checked);
   },
-
-  // Price
-  //var max_price = activityList.getElementByID('max_price');
-
 });
