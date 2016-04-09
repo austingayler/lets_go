@@ -3,10 +3,27 @@
     <header>
       <h1>Activity List ({{incompleteCount}})</h1>
 
-      <label class="hide-completed">
-        <input type="checkbox" />
-        Hide Completed Activities
-      </label>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <div id="myDropdown" class="dropdown-content">
+
+              <label class="show-hiking">
+                <input type="checkbox" />
+                  Show Hiking Activities
+              </label>
+
+              <label class="show-camping">
+                <input type="checkbox" />
+                  Show Camping Activities
+              </label>
+
+        </div>
+      </div>
+
+
+
+
+
 
       {{> loginButtons}}
 
