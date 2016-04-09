@@ -4,7 +4,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 import { Activities } from '../api/activities.js';
 
-import './task.js';
+import './activity.js';
 import './body.html';
 
 Template.body.onCreated(function bodyOnCreated() {

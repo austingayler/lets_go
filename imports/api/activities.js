@@ -16,7 +16,29 @@ if (Meteor.isServer) {
     });
   });
 
+  Activities.insert({
+    ownerID : 1,
+    ownerName : "Conrad Anker",
+    activityTitle: "Hiking in the Amazon",
+    category : "hiking",
+    createdAt: new Date(),
+  });
 
+  Activities.insert({
+    ownerID : 1,
+    ownerName : "Alex Lowe",
+    activityTitle: "Alpine Skinny-dipping",
+    category : "swimming",
+    createdAt: new Date(),
+  });
+
+  Activities.insert({
+    ownerID : 1,
+    ownerName : "Danny MacAskill",
+    activityTitle: "Fly-fishing the Maddy",
+    category : "fishing",
+    createdAt: new Date(),
+  });
 
 }
 
