@@ -1,9 +1,8 @@
 /* CSS declarations go here */
 body {
-  font-family: helvetica;
   background-color: #737373;
-  background-image: url("bkgnd.png");
-  background-size: 2408px 806px;
+  background-image: url("background_blur.png");
+  background-size: 1632px 1224px;
   background-position: center;
   background-attachment: fixed;
 

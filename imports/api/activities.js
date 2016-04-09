@@ -24,10 +24,12 @@ if (Meteor.isServer) {
   });
 
   Activities.remove({});
+  Connections.remove({});
   Meteor.users.remove({});
 
 
   var userID = Accounts.createUser({
+      username: "abc1",
       email: "abc1",
       password: "letsgo",
       profile: {
@@ -60,6 +62,7 @@ if (Meteor.isServer) {
 
 
   userID = Accounts.createUser({
+      username: "abc12",
       email: "abc12",
       password: "letsgo",
       profile: {
@@ -83,7 +86,7 @@ if (Meteor.isServer) {
       ownerName: user.profile.name,
       gear: "Provided",
       activityTitle: "Warm Springs Duck Blind",
-      category: "Waterfowl-Hunting",
+      category: "Hunting",
       skill_level: "Beginner",
       createdAt: new Date(),
       picURL: "Waterfowl - hunting.jpg",
@@ -93,13 +96,14 @@ if (Meteor.isServer) {
 
 
   userID = Accounts.createUser({
-      email: "abc123",
+      username: "abc123",
+      email: "abc123@a.com",
       password: "letsgo",
       profile: {
           name: "Chris Major",
-          bio: "Hey guys I’m Chris Major and i’m a sophomore at MSU in the CpE department",
+          bio: "Hey everyone! I’m Chris Major and I’m a sophomore at MSU in the CpE department",
           certs: ["CPR"],
-          gear: ["Running Shoes", "Camelback"],
+          gear: ["Running Shoes", "Headphones"],
           activities: ["Trailrunning", "hiking"],
           trips: ["The M", "Drinking Horse", "The Gallagator"],
           reviews: ["9.5"],
@@ -116,8 +120,8 @@ if (Meteor.isServer) {
       ownerName: user.profile.name,
       gear: "Provided",
       activityTitle: "Traillrunning Sourdough",
-      category: "Traillrunning",
-      skill_level: "Beginner",
+      category: "Running",
+      skill_level: "Trying To Learn",
       createdAt: new Date(),
       picURL: "IMG_0781.JPG",
   });
@@ -126,11 +130,12 @@ if (Meteor.isServer) {
 
 
   userID = Accounts.createUser({
+      username: "abc1234",
       email: "abc1234",
       password: "letsgo",
       profile: {
           name: "Martin Kepner",
-          bio: "Hey, my name is Martin Kepner and I’m a jr. in the college of business at MSU. I currently have certifications in First Aid and CPR and Swiftwater rescue. I love to hike, backpack, snowboard, and whitewater raft. I have a lot of experience hiking in several mountain ranges in the area including the Bridgers, Gallatin, Crazy, Gallatin, Madison, and Beartooth mountain range. My services include short hikes to scenic waterfalls in the area ranging from .2 miles to 3 mile hikes. For the more avid hiker I offer summit hikes for local peaks including Baldy, Sphynx, Crazy, Blackmore and Sacagawea and backcountry options in the Beartooth, Madison and Gallatin range. These backcountry hiking options vary from 2-5 days and between 10 to 40 miles. On the hikes you can expect to see glacial lakes, waterfalls, gorgeous backcountry, and almost always are able to observe some wildlife on the trip. During hikes in the area I have been able to observe mountain goats, moose, deer, elk, and even a black bear from safe locations. Bear spray carried around my waist at all time allows me to keep my group and myself safe at all times. I also offer whitewater rafting trips on the Gallatin and Yellowstone rivers.",
+          bio: "Hey, my name is Martin Kepner and I’m a Jr. in the College of Business at MSU. I currently have certifications in First Aid and CPR and Swiftwater rescue. I love to hike, backpack, snowboard, and whitewater raft. I have a lot of experience hiking in several mountain ranges in the area including the Bridgers, Gallatin, Crazy, Gallatin, Madison, and Beartooth mountain range. My services include short hikes to scenic waterfalls in the area ranging from .2 miles to 3 mile hikes. For the more avid hiker I offer summit hikes for local peaks including Baldy, Sphynx, Crazy, Blackmore and Sacagawea and backcountry options in the Beartooth, Madison and Gallatin range. These backcountry hiking options vary from 2-5 days and between 10 to 40 miles. On the hikes you can expect to see glacial lakes, waterfalls, gorgeous backcountry, and almost always are able to observe some wildlife on the trip. During hikes in the area I have been able to observe mountain goats, moose, deer, elk, and even a black bear from safe locations. Bear spray carried around my waist at all time allows me to keep my group and myself safe at all times. I also offer whitewater rafting trips on the Gallatin and Yellowstone rivers.",
           certs: ["CPR", "Swiftwater Rescue 1", "First Aid"],
           gear: ["Backcountry Backpacks", "Sleeping Pads", "Sleeping Bags"],
           activities: ["Hiking Short Half Day $25 Per person, $15 Per person for groups >3", "Backcountry Camping 3 day $200 per person, 100 Per Person for groups >3", "Whitewater Rafting Half Day $25 Per person, $15 Per person for groups >3"],
@@ -149,7 +154,7 @@ if (Meteor.isServer) {
       ownerName: user.profile.name,
       gear: "Provided",
       activityTitle: "East Rosebud Trail",
-      category: "Backcountry Camping",
+      category: "Camping",
       skill_level: "Beginner",
       createdAt: new Date(),
       picURL: "IMG_0212.jpg",
@@ -159,6 +164,7 @@ if (Meteor.isServer) {
 
 
   userID = Accounts.createUser({
+      username: "abc12345",
       email: "abc12345",
       password: "letsgo",
       profile: {
@@ -190,6 +196,7 @@ if (Meteor.isServer) {
 
 
   userID = Accounts.createUser({
+      username: "abc123456",
       email: "abc123456",
       password: "letsgo",
       profile: {
@@ -213,7 +220,7 @@ if (Meteor.isServer) {
       ownerName: user.profile.name,
       gear: "Provided",
       activityTitle: "Summiting the Grand Teton",
-      category: "Rock Climbing",
+      category: "Climbing",
       skill_level: "Beginner",
       createdAt: new Date(),
       picURL: "ursa10.jpg",
@@ -279,19 +286,19 @@ Meteor.methods({
   },
 
   'fixtures.insert'() {
-      if (! this.userId) {
+      if (! Meteor.userId()) {
         throw new Meteor.Error('not-authorized');
       }
       var con = {
         followerId : "conrad_anker",
         followerName : "Conrad Anker",
-        guideId : this.userId,
+        guideId : Meteor.userId(),
         guideName : "Conrad Anker",
         date : new Date(),
         msg : "plz teach me how to double dyno to micro crimpers",
         status : null,
         createdAt: new Date(),
-        owner: this.userId,
+        owner: Meteor.userId(),
         trip : "Rock Climbing Half Day $35 Per person, $25 Per person for groups >3"
     };
       console.log(con);
