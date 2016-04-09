@@ -57,6 +57,7 @@ if (Meteor.isServer) {
     activityTitle: "Hiking in the Amazon",
     category : "Hiking",
     skill_level: 'Advanced',
+    cost: 69,
     createdAt: new Date(),
   });
 
@@ -67,6 +68,7 @@ if (Meteor.isServer) {
     activityTitle: "Alpine Skinny-dipping",
     category : "Swimming",
     skill_level: 'Trying To Learn',
+    cost: 15,
     createdAt: new Date(),
   });
 
@@ -74,9 +76,10 @@ if (Meteor.isServer) {
     owner_id : 3,
     ownerName : "Danny MacAskill",
     gear : 'Provided',
-    activityTitle: "Fly-fishing the Maddy",
+    activityTitle: "Fly-fishing the Madison",
     category : "Fishing",
     skill_level: 'Intermediate',
+    cost: 30,
     createdAt: new Date(),
   });
 
@@ -87,6 +90,7 @@ if (Meteor.isServer) {
     activityTitle : 'Hiking the M - Bozeman',
     category : "Hiking",
     skill_level: 'Beginner',
+    cost: 10,
     createdAt : new Date(),
   });
 
@@ -97,6 +101,7 @@ if (Meteor.isServer) {
     activityTitle : 'Fly-fishing the Jefferson',
     category : "Fishing",
     skill_level: 'Beginner',
+    cost: 35,
     createdAt : new Date(),
   });
 
@@ -107,6 +112,7 @@ if (Meteor.isServer) {
     activityTitle : 'Climbing Mt. Everest',
     category : "Climbing",
     skill_level: 'Advanced',
+    cost: 750,
     createdAt : new Date(),
   });
 
@@ -117,8 +123,95 @@ if (Meteor.isServer) {
     activityTitle : 'Camping at Clearwater National Forest',
     category : "Camping",
     skill_level: 'Trying To Learn',
+    cost: 25,
     createdAt : new Date(),
   });
+
+  Activities.insert({
+	owner_id : 8,
+	ownerName : "Tucker Tyrell",
+	gear : 'Provided',
+	activityTitle: "Spanish Peaks Yoga Retreat",
+	category : "Yoga",
+	skill_level : 'Advanced',
+  cost: 20,
+  createdAt: new Date(),
+	picURL : "10658782_10152825763099085.jpg",
+  });
+
+  Activities.insert({
+  	owner_id : 9,
+  	ownerName : "Derrick Krueger",
+  	gear : 'Provided',
+  	activityTitle: "Warm Springs Duck Blind",
+  	category : 'Hunting',
+  	skill_level : 'Beginner',
+    cost: 25,
+    createdAt: new Date(),
+  	picURL : "Waterfowl-hunting.jpg",
+    });
+
+  Activities.insert({
+	   owner_id : 10,
+	   ownerName : "Chris Major",
+	   gear : 'Provided',
+	   activityTitle: "Trail Running Sourdough",
+	   category : 'Running',
+	   skill_level : 'Beginner',
+     cost: 15,
+     createdAt: new Date(),
+	   picURL : "IMG_0781.JPG",
+     });
+
+ Activities.insert({
+  	owner_id : 11,
+  	ownerName : "Martin Kepner",
+  	gear : 'Provided',
+  	activityTitle: "East Rosebud Trail",
+  	category : 'Camping',
+    skill_level : 'Beginner',
+    cost: 35,
+  	createdAt: new Date(),
+  	picURL : "IMG_0212.jpg",
+    });
+
+ Activities.insert({
+    owner_id : 12,
+  	ownerName : "Duncan Kepner",
+  	gear : 'Provided',
+    activityTitle: "Hiking The Hyalite",
+    category : 'Hiking',
+    skill_level : 'Advanced',
+    cost: 45,
+    createdAt: new Date(),
+    picURL : "IMG_0802.JPG",
+    });
+
+ Activities.insert({
+   	owner_id : 13,
+   	ownerName : "Ryeland Allenson",
+   	gear : 'Provided',
+   	activityTitle: "Full Day on the Gallatin River",
+   	category : 'Flyfishing',
+   	skill_level : 'Beginner',
+    cost: 150,
+   	createdAt: new Date(),
+   	picURL : "Screen Shot 2016-04-09 at 3.11.22 AM.png",
+    });
+
+ Activities.insert({
+  	owner_id : 14,
+	  ownerName : "AJ Gayler",
+	  gear : 'Provided',
+	  activityTitle: "Summiting the Grand Teton",
+	  category : 'Climbing',
+	  skill_level : 'Beginner',
+    cost: 100,
+	  createdAt: new Date(),
+	  picURL : "ursa10.jpg",
+    });
+
+
 
   var prof = {
     name : "Conrad Anker",

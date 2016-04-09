@@ -1,8 +1,10 @@
 /* CSS declarations go here */
 body {
-  font-family: sans-serif;
+  font-family: helvetica;
   background-color: #315481;
-  background-image: linear-gradient(to bottom, #24AB3F, #918e82 100%);
+  background-image: url("http://i.imgur.com/t1yNlah.jpg");
+  background-size: 2408px 806px;
+  background-position: center;
   background-attachment: fixed;
 
   position: absolute;
@@ -25,10 +27,30 @@ body {
 }
 
 header {
-  background: #d2edf4;
-  background-image: linear-gradient(to bottom, #24AB3F, #e1e5f0 100%);
+  background: #737373;
   padding: 20px 15px 15px 15px;
   position: relative;
+}
+
+header .hide-completed {
+  float: right;
+}
+
+header .hide-hiking {
+  float: right;
+}
+
+header .hide-camping {
+  float: right;
+}
+
+button {
+  color: #000000;
+  padding: 10px 15px;
+  font-size: 14px;
+  background: #a3c0f5;
+  border-color: #99BBF7;
+  outline: none;
 }
 
 #login-buttons {
@@ -37,10 +59,17 @@ header {
 
 h1 {
   font-size: 1.5em;
+  font-family: helvetica;
+  color: #FFFFFF;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
+}
+
+.text-box {
+  background-color: #a3c0f5;
+  padding: 20px;
 }
 
 form {
@@ -102,18 +131,6 @@ li.private {
   border-color: #ddd;
 }
 
-header .hide-completed {
-  float: right;
-}
-
-header .hide-hiking {
-  float: right;
-}
-
-header .hide-camping {
-  float: right;
-}
-
 .toggle-private {
   margin-left: 5px;
 }
@@ -146,6 +163,7 @@ header .hide-camping {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
+    font-size: 14px;
 }
 
 .dropdown:hover .dropdown-content {
