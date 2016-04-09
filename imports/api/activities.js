@@ -324,8 +324,10 @@ Meteor.methods({
         trip : "Rock Climbing Half Day $35 Per person, $25 Per person for groups >3"
     };
       console.log(con);
-      Connections.insert(con);
-      con.date = new Date(new Date().getTime()+(3*24*60*60*1000));
+
+      var randDays = Math.floor(Math.random() * (10)) + 1;
+
+      con.date = new Date(new Date().getTime()+(randDays*24*60*60*1000));
       Connections.insert(con);
   },
 

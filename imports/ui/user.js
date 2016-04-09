@@ -53,7 +53,7 @@ Template.user.helpers({
                       userActivities.profile.activities.forEach(function (event) {
                           var eventDetails = {
                               allDay : true,
-                              title : event.followerName,
+                              title : event.followerName + "\n" + event.msg,
                               start : moment(event.date).format('YYYY-MM-DD')
                           };
                           events.push(eventDetails);

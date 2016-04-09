@@ -1,7 +1,6 @@
 <template name="activityList">
       <h1>Activity List ({{incompleteCount}})</h1>
-      {{> loginButtons}}
-
+        {{> loginButtons}}
       <br>
 
       <!-- FILTER BY ACTIVITY TYPE -->
@@ -137,7 +136,7 @@
       {{/if}}
 
       <h1>Activity List ({{incompleteCount}})</h1>
-      
+
     <ul>
       {{#each activities}}
         {{> activity}} <br>
