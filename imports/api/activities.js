@@ -48,6 +48,7 @@ if (Meteor.isServer) {
   // Swimming
 
   Activities.remove({});
+  Meteor.users.remove({});
 
   Activities.insert({
     owner_id : 1,
@@ -106,6 +107,23 @@ if (Meteor.isServer) {
     category : "Camping",
     createdAt : new Date(),
   });
+
+  var prof = {
+    name : "Conrad Anker",
+    bio : "ya i do sports deal with it",
+    certs : [],
+    gear : [],
+    activities : [],
+    trips : [],
+    reviews : []
+    };
+
+  for(var i = 0; i < 5; i++) {
+
+        var email = i.toString();
+
+      Accounts.createUser({email : email, password : "letsgo", profile : prof});
+  }
 
 }
 
