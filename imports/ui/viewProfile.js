@@ -21,6 +21,17 @@ Template.viewProfile.helpers({
     // console.log(user);
     return user;
   },
+  getPicURL() {
+      var ret = "";
+      console.log(this);
+      console.log(this.picURL);
+      if(!this.picURL) {
+          ret = "/pix/riley.jpg";
+      } else {
+          ret = this.picURL;
+      }
+      return ret;
+  }
 });
 
 Template.viewProfile.events({

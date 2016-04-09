@@ -40,7 +40,7 @@ if (Meteor.isServer) {
           activities: ["Yoga", "Meditation", "Hiking"],
           trips: ["Spanish Peaks Yoga Retreat"],
           reviews: ["8.8"],
-          picURL: ""
+          picURL: "/img/dsc_9772.jpg"
       }
   });
 
@@ -56,10 +56,8 @@ if (Meteor.isServer) {
       category: "Yoga",
       skill_level: "Advanced",
       createdAt: new Date(),
-      picURL: "10658782 _10152825763099085.jpg",
+      picURL: "/img/10658782_10152825763099085.jpg",
   });
-
-
 
   userID = Accounts.createUser({
       username: "abc12",
@@ -73,7 +71,7 @@ if (Meteor.isServer) {
           activities: ["Skiing", "Duck Hunting", "Rowing"],
           trips: ["Warm Springs Duck Blind", "Pipestone Hot Springs", "Solemn Hike"],
           reviews: ["9.1"],
-          picURL: "11728980_10207105966190220.jpg"
+          picURL: "/img/11728980_10207105966190220.jpg"
       }
   });
 
@@ -89,7 +87,7 @@ if (Meteor.isServer) {
       category: "Hunting",
       skill_level: "Beginner",
       createdAt: new Date(),
-      picURL: "Waterfowl - hunting.jpg",
+      picURL: "",
   });
 
   userID = Accounts.createUser({
@@ -104,7 +102,7 @@ if (Meteor.isServer) {
           activities: ["Trailrunning", "hiking"],
           trips: ["The M", "Drinking Horse", "The Gallagator"],
           reviews: ["9.5"],
-          picURL: "IMG_0781.JPG"
+          picURL: "/img/IMG_0781.JPG"
       }
   });
 
@@ -120,7 +118,7 @@ if (Meteor.isServer) {
       category: "Running",
       skill_level: "Trying To Learn",
       createdAt: new Date(),
-      picURL: "IMG_0781.JPG",
+      picURL: "/img/IMG_0781.JPG",
   });
 
 
@@ -138,7 +136,7 @@ if (Meteor.isServer) {
           activities: ["Hiking Short Half Day $25 Per person, $15 Per person for groups >3", "Backcountry Camping 3 day $200 per person, 100 Per Person for groups >3", "Whitewater Rafting Half Day $25 Per person, $15 Per person for groups >3"],
           trips: ["Hyalite Peak", "Palisade Falls", "Crazy Peak"],
           reviews: ["8"],
-          picURL: "IMG_0286.jpg"
+          picURL: "/img/IMG_0286.jpg"
       }
   });
 
@@ -154,7 +152,7 @@ if (Meteor.isServer) {
       category: "Camping",
       skill_level: "Beginner",
       createdAt: new Date(),
-      picURL: "IMG_0212.jpg",
+      picURL: "/img/IMG_0212.jpg",
   });
 
 
@@ -172,7 +170,7 @@ if (Meteor.isServer) {
           activities: ["Ice Climbing", "Rock Climbing", "Mountaineering"],
           trips: ["Hiking Short Half Day $25 Per person, $15 Per person for groups >3", "Hiking Full Day Summit $45 person, $25 Per person for groups>3", "Rock Climbing Half Day $35 Per person, $25 Per person for groups >3"],
           reviews: ["9"],
-          picURL: "IMG_0212.jpg"
+          picURL: "/img/IMG_0212.jpg"
       }
   });
 
@@ -188,7 +186,7 @@ if (Meteor.isServer) {
       category: "Hiking",
       skill_level: "Advanced",
       createdAt: new Date(),
-      picURL: "IMG_0802.JPG",
+      picURL: "/img/IMG_0802.JPG",
   });
 
 
@@ -204,7 +202,7 @@ if (Meteor.isServer) {
           activities: ["Ice Climbing", "Rock Climbing"],
           trips: ["Rock Climbing Half Day $35 Per person, $25 Per person for groups >3", "Rock Climbing Full Day $55 person, $30 Per person for groups>3", "Ice Climbing Full Day $55 person, $30 Per person for groups>3"],
           reviews: ["9.5"],
-          picURL: "ursa5.JPG"
+          picURL: "/img/ursa5.JPG"
       }
   });
 
@@ -220,7 +218,7 @@ if (Meteor.isServer) {
       category: "Climbing",
       skill_level: "Beginner",
       createdAt: new Date(),
-      picURL: "ursa10.jpg",
+      picURL: "/img/ursa10.jpg",
   });
 
 }
