@@ -1,5 +1,19 @@
 <template name="viewProfile">
     <span class="text">
         <strong>{{data.profile.name}}</strong> - {{data.profile.bio}}
+
     </span>
+    <p>{{data.profile.certs}}</p><br>
+    <p>{{data.profile.gear}}</p><br>
+    <p>{{data.profile.activities}}</p><br>
+    <p>{{data.profile.trips}}</p><br>
+
+    <!-- {{#if currentUser}} -->
+        <a href="/request/{{data._id}}">
+            <button class="ui primary button">
+              Request
+            </button>
+        </a>
+    <!-- {{/if}} -->
+
 </template>

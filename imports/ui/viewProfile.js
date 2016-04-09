@@ -15,9 +15,9 @@ Template.viewProfile.onCreated(function bodyOnCreated() {
 
 Template.viewProfile.helpers({
   data() {
-    console.log(FlowRouter.getParam('_id'));
+    // console.log(FlowRouter.getParam('_id'));
     user = Meteor.users.findOne();
-    console.log(user);
+    // console.log(user);
     return user;
   },
 });

@@ -1,0 +1,26 @@
+<template name="request">
+    <span class="text">
+        <strong>Go on an adventure with {{data.profile.name}}</strong>
+    </span>
+    <form>
+        <select id="input_trip" class="ui dropdown">
+            {{#each data.profile.trips}}
+                <option value="">{{this}}</option>
+            {{/each}}
+        </select>
+
+        <div class="ui input focus">
+          <input placeholder="Why this trip?" type="text" id="input_why">
+        </div>
+
+        <input class = "datepicker" id="input_date">
+
+        <!-- {{#if currentUser}} -->
+            <!-- <a href="/request/{{data._id}}"> -->
+                <button class="ui primary button">
+                  Request
+                </button>
+            <!-- </a> -->
+        <!-- {{/if}} -->
+    </form>
+</template>

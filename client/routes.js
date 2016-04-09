@@ -14,3 +14,12 @@ FlowRouter.route('/viewProfile/:_id', {
     });
   }
 });
+
+FlowRouter.route('/request/:_id', {
+  action: function(params) {
+    BlazeLayout.render("mainLayout", {
+        content: "request",
+        params : params
+    });
+  }
+});

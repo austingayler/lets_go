@@ -47,12 +47,26 @@ if (Meteor.isServer) {
   // Ice Climbing
   // Swimming
 
+
   Activities.remove({});
   Meteor.users.remove({});
 
+  var userID = Accounts.createUser({email : "abc", password : "letsgo", profile : {
+    name : "Conrad Anker",
+    bio : "sports r da best",
+    certs : ["CPR", "WFR", "EMT", "AMGA"],
+    gear : ["Ice Axes", "Sleeping Pads", "Tent", "Harness"],
+    activities : ["Ice Climbing", "Rock Climbing", "Mountaineering", "Badass"],
+    trips : ["Hyalite Peak", "Palisade Falls", "Crazy Peak"],
+    reviews : ["A++, Great guy."],
+    picURL : "/1.jpg"
+  }});
+
+  var user = Meteor.users.findOne({_id : userID}); //get actual user object
+
   Activities.insert({
-    owner_id : 1,
-    ownerName : "Conrad Anker",
+    owner_id : userID,
+    ownerName : user.name,
     certification : 'first aid + cpr',
     activityTitle: "Hiking in the Amazon",
     category : "Hiking",
@@ -60,7 +74,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 2,
+    owner_id : userID,
     ownerName : "Alex Lowe",
     certification : 'first aid + cpr',
     activityTitle: "Alpine Skinny-dipping",
@@ -69,7 +83,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 3,
+    owner_id : userID,
     ownerName : "Danny MacAskill",
     activityTitle: "Fly-fishing the Maddy",
     category : "Fishing",
@@ -77,7 +91,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 4,
+    owner_id : userID,
     ownerName : "Joe Brown",
     activityTitle : 'Hiking the M - Bozeman',
     category : "Hiking",
@@ -85,7 +99,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 5,
+    owner_id : userID,
     ownerName : "Danny MacAskill",
     activityTitle : 'Fly-fishing the Jefferson',
     category : "Fishing",
@@ -93,7 +107,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 6,
+    owner_id : userID,
     ownerName : "Sarah Reid",
     activityTitle : 'Climbing Mt. Everest',
     category : "Climbing",
@@ -101,29 +115,17 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 7,
+    owner_id : userID,
     ownerName : "Chris Minor",
     activityTitle : 'Camping at Clearwater National Forest',
     category : "Camping",
     createdAt : new Date(),
   });
 
-  var prof = {
-    name : "Conrad Anker",
-    bio : "ya i do sports deal with it",
-    certs : [],
-    gear : [],
-    activities : [],
-    trips : [],
-    reviews : []
-    };
 
-  for(var i = 0; i < 5; i++) {
 
-        var email = i.toString();
 
-      Accounts.createUser({email : email, password : "letsgo", profile : prof});
-  }
+
 
 }
 
