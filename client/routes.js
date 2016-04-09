@@ -6,10 +6,10 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/viewActivity/:_id', {
+FlowRouter.route('/viewProfile/:_id', {
   action: function(params) {
     BlazeLayout.render("mainLayout", {
-        content: "viewActivity",
+        content: "viewProfile",
         params : params
     });
   }

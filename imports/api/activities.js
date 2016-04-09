@@ -15,6 +15,9 @@ if (Meteor.isServer) {
       ],
     });
   });
+  Meteor.publish('allUsers', function activitiesPublication() {
+    return Meteor.users.find({});
+  });
 
   // ACTIVITY CATEGORIES - REFER FOR SAMPLE CODING
   // Showaround
@@ -47,7 +50,7 @@ if (Meteor.isServer) {
   Activities.remove({});
 
   Activities.insert({
-    ownerID : 1,
+    owner_id : 1,
     ownerName : "Conrad Anker",
     certification : 'first aid + cpr',
     activityTitle: "Hiking in the Amazon",
@@ -56,7 +59,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    ownerID : 2,
+    owner_id : 2,
     ownerName : "Alex Lowe",
     certification : 'first aid + cpr',
     activityTitle: "Alpine Skinny-dipping",
@@ -65,7 +68,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    ownerID : 3,
+    owner_id : 3,
     ownerName : "Danny MacAskill",
     activityTitle: "Fly-fishing the Maddy",
     category : "Fishing",
@@ -73,7 +76,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 1,
+    owner_id : 4,
     ownerName : "Joe Brown",
     activityTitle : 'Hiking the M - Bozeman',
     category : "Hiking",
@@ -81,7 +84,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 1,
+    owner_id : 5,
     ownerName : "Danny MacAskill",
     activityTitle : 'Fly-fishing the Jefferson',
     category : "Fishing",
@@ -89,7 +92,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 1,
+    owner_id : 6,
     ownerName : "Sarah Reid",
     activityTitle : 'Climbing Mt. Everest',
     category : "Climbing",
@@ -97,7 +100,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    owner_id : 1,
+    owner_id : 7,
     ownerName : "Chris Minor",
     activityTitle : 'Camping at Clearwater National Forest',
     category : "Camping",
