@@ -25,7 +25,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    ownerID : 1,
+    ownerID : 2,
     ownerName : "Alex Lowe",
     activityTitle: "Alpine Skinny-dipping",
     category : "swimming",
@@ -33,7 +33,7 @@ if (Meteor.isServer) {
   });
 
   Activities.insert({
-    ownerID : 1,
+    ownerID : 3,
     ownerName : "Danny MacAskill",
     activityTitle: "Fly-fishing the Maddy",
     category : "fishing",

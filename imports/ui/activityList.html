@@ -1,4 +1,4 @@
-<body>
+<template name="activityList">
   <div class="container">
     <header>
       <h1>Activity List ({{incompleteCount}})</h1>
@@ -19,8 +19,8 @@
 
     <ul>
       {{#each activities}}
-        {{> task}}
+        {{> activity}}
       {{/each}}
     </ul>
   </div>
-</body>
+</template>
