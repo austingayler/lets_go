@@ -3,29 +3,100 @@
     <header>
       <h1>Activity List ({{incompleteCount}})</h1>
 
+      {{> loginButtons}}
+
+      <br>
+
+      <!-- FILTER BY ACTIVITY TYPE -->
+
       <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <button onclick="dropdown_menu()" class="dropbtn">Filter Activities</button>
         <div id="myDropdown" class="dropdown-content">
-
-              <label class="show-hiking">
-                <input type="checkbox" />
-                  Show Hiking Activities
-              </label>
-
               <label class="show-camping">
-                <input type="checkbox" />
-                  Show Camping Activities
+                <input type="checkbox"/>
+                  Camping
               </label>
-
+              <br>
+              <label class="show-climbing">
+                <input type="checkbox"/>
+                  Climbing
+              </label>
+              <br>
+              <label class="show-fishing">
+                <input type="checkbox"/>
+                  Fishing
+              </label>
+              <br>
+              <label class="show-hiking">
+                <input type="checkbox"/>
+                  Hiking
+              </label>
+              <br>
+              <label class="show-rafting">
+                <input type="checkbox"/>
+                  Rafting
+              </label>
+              <br>
+              <label class="show-biking">
+                <input type="checkbox"/>
+                  Biking
+              </label>
+              <br>
+              <label class="show-caving">
+                <input type="checkbox"/>
+                  Caving
+              </label>
+              <br>
+              <label class="show-surfing">
+                <input type="checkbox"/>
+                  Surfing
+              </label>
         </div>
       </div>
 
+      <!-- FILTER BY SKILL LEVEL -->
 
+      <div class="dropdown">
+        <button onclick="dropdown_menu()" class="dropbtn">Filter by Skill Level</button>
+        <div id="myDropdown" class="dropdown-content">
+          <label class="learning">
+            <input type="checkbox"/>
+              Trying To Learn
+          </label>
+        <br>
+          <label class="beginner">
+            <input type="checkbox"/>
+              Beginner
+          </label>
+        <br>
+          <label class="intermediate">
+            <input type="checkbox"/>
+              Intermediate
+          </label>
+        <br>
+          <label class="advanced">
+            <input type="checkbox"/>
+              Advanced
+          </label>
+        </div>
+      </div>
 
+      <!-- FILTER BY GEAR -->
 
-
-
-      {{> loginButtons}}
+      <div class="dropdown">
+        <button onclick="dropdown_menu()" class="dropbtn">Filter by Gear</button>
+        <div id="myDropdown" class="dropdown-content">
+              <label class="gear-required">
+                <input type="checkbox"/>
+                  Required
+              </label>
+            <br>
+              <label class="gear-provided">
+                <input type="checkbox"/>
+                  Provided
+              </label>
+        </div>
+      </div>
 
       {{#if currentUser}}
         <form class="new-task">
