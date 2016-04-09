@@ -16,19 +16,51 @@ if (Meteor.isServer) {
     });
   });
 
+  // ACTIVITY CATEGORIES - REFER FOR SAMPLE CODING
+  // Showaround
+  // Fly-fishing
+  // Fishing
+  // Climbing
+  // Hiking
+  // Rafting
+	// Sport shooting
+  // Backpacking
+  // Fly Around
+  // Backcountry Skiing
+  // Tandem Parasailing
+  // Geo Hikes
+  // Biking
+  // Sailing
+  // Saltwater fishing
+  // Diving
+  // Snorkeling
+  // Snowshoeing
+  // Cross Country skiing
+  // Snowmobile
+  // ATV
+  // Backcountry dirt biking
+  // Surfing
+  // Caving
+  // Ice Climbing
+  // Swimming
+
+  Activities.remove({});
+
   Activities.insert({
     ownerID : 1,
     ownerName : "Conrad Anker",
+    certification : 'first aid + cpr',
     activityTitle: "Hiking in the Amazon",
-    category : "hiking",
+    category : "Hiking",
     createdAt: new Date(),
   });
 
   Activities.insert({
     ownerID : 1,
     ownerName : "Alex Lowe",
+    certification : 'first aid + cpr',
     activityTitle: "Alpine Skinny-dipping",
-    category : "swimming",
+    category : "Swimming",
     createdAt: new Date(),
   });
 
@@ -36,8 +68,40 @@ if (Meteor.isServer) {
     ownerID : 1,
     ownerName : "Danny MacAskill",
     activityTitle: "Fly-fishing the Maddy",
-    category : "fishing",
+    category : "Fishing",
     createdAt: new Date(),
+  });
+
+  Activities.insert({
+    owner_id : 1,
+    ownerName : "Joe Brown",
+    activityTitle : 'Hiking the M - Bozeman',
+    category : "Hiking",
+    createdAt : new Date(),
+  });
+
+  Activities.insert({
+    owner_id : 1,
+    ownerName : "Danny MacAskill",
+    activityTitle : 'Fly-fishing the Jefferson',
+    category : "Fishing",
+    createdAt : new Date(),
+  });
+
+  Activities.insert({
+    owner_id : 1,
+    ownerName : "Sarah Reid",
+    activityTitle : 'Climbing Mt. Everest',
+    category : "Climbing",
+    createdAt : new Date(),
+  });
+
+  Activities.insert({
+    owner_id : 1,
+    ownerName : "Chris Minor",
+    activityTitle : 'Camping at Clearwater National Forest',
+    category : "Camping",
+    createdAt : new Date(),
   });
 
 }
